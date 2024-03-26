@@ -14,20 +14,49 @@ const Book_Detil = () => {
             if (!localdata.find(data => data == bookId)) {
                 const newdata = [...localdata, bookId]
                 localStorage.setItem('readdata', JSON.stringify(newdata))
-                toast("Book Added To Read List");
+                toast.success("Book Added To Read List");
             } else {
-                toast("Wow so easy!");
+                toast.error("The Book Already Added!");
             }
         } else {
             localStorage.setItem('readdata', JSON.stringify([bookId]))
-            toast("Wow so easy!");
+            toast.success("Book Added To Read List");
+
+            
+            const wishlist = JSON.parse(localStorage.getItem('wishdata'))
+            if (wishlist) {
+                if (wishlist.find(data => data == bookId)) {
+                    toast.error("Already Added To the Wishlist")
+                } 
+            }
+            
         }
 
 
     }
 
     function wishhandle() {
+        const haveinread = JSON.parse(localStorage.getItem('readdata'))
+        if (haveinread.find(data => data == bookId)) {
+            toast.error("The Book Already Readed");
+        }
+        else {
+            const wishlist = JSON.parse(localStorage.getItem('wishdata'))
 
+            if (wishlist) {
+                if (wishlist.find(data => data == bookId)) {
+                    toast.error("Already Added To the Wishlist")
+                } else {
+                    const newwish = [...wishlist, bookId]
+                    localStorage.setItem('wishdata', JSON.stringify(newwish))
+                    toast.success("Book is added to Wishlist successfully");
+                }
+            } else {
+                localStorage.setItem('wishdata', JSON.stringify([bookId]))
+                toast.success("Book is added to Wishlist successfully");
+
+            }
+        }
     }
 
     return (

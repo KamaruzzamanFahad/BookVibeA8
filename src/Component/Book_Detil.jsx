@@ -1,9 +1,34 @@
 import Header from "./Header";
-import { useLocation } from 'react-router-dom';
+import { json, useLocation } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Book_Detil = () => {
     const location = useLocation();
-    const { image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = location.state;
+    const { bookId, image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = location.state;
+
+    function readhandle() {
+        const readdata = localStorage.getItem('readdata')
+        const localdata = JSON.parse(readdata);
+        if (localdata) {
+            if (!localdata.find(data => data == bookId)) {
+                const newdata = [...localdata, bookId]
+                localStorage.setItem('readdata', JSON.stringify(newdata))
+                toast("Book Added To Read List");
+            } else {
+                toast("Wow so easy!");
+            }
+        } else {
+            localStorage.setItem('readdata', JSON.stringify([bookId]))
+            toast("Wow so easy!");
+        }
+
+
+    }
+
+    function wishhandle() {
+
+    }
 
     return (
         <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center ">
@@ -39,9 +64,10 @@ const Book_Detil = () => {
                     </div>
                 </div>
                 <div className="flex gap-3 mt-5">
-                    <button className="buttom bg-transparent border-[1px] border-[#929292a1] w-[100px] text-black ">Read</button>
-                    <button className="buttom bg-[#51c7d4] text-white px-7">Wishlist</button>
+                    <button onClick={readhandle} className="buttom bg-transparent border-[1px] border-[#929292a1] w-[100px] text-black ">Read</button>
+                    <button onClick={wishhandle} className="buttom bg-[#51c7d4] text-white px-7">Wishlist</button>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );

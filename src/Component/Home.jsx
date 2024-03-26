@@ -19,13 +19,16 @@ const Home = () => {
     const clickhandle = (item) => {
         navigate("/book_detil",{ state: item })
     }
+    function golisted(){
+        navigate('/listed-book')
+    }
 
     return (
         <div className="mb-20">
             <div className="flex flex-col-reverse md:flex-row lg:flex-row xl:flex-row p-20 px-5 md:px-24 lg:px-24 xl:px-24 bg-[#0000000a] rounded-xl mt-10 justify-between items-center">
                 <div className="w-[100%] md:w-[50%] lg:w-[50%] xl:w-[50%] text-center md:text-left lg:text-left xl:text-left">
                     <h2 className="text-5xl font-bold text-[#070707f9] mb-10 leading-[80px] ">Books to freshen up your bookshelf</h2>
-                    <button className="buttom bg-[#23BE0A] text-white p-4 px-7">View The List</button>
+                    <button onClick={golisted} className="buttom bg-[#23BE0A] text-white p-4 px-7">View The List</button>
                 </div>
                 <div>
                     <img src="pngwing 1.png" alt="" />

@@ -37,8 +37,8 @@ const LIstedBook = () => {
 
             <div>
                 <div role="tablist" className="tabs tabs-lifted flex w-full">
-                    <a onClick={() => tabhandle('one')} role="tab" className={tabone}>Tab 1</a>
-                    <a onClick={() => tabhandle('two')} role="tab" className={tabtwo}>Tab 2</a>
+                    <a onClick={() => tabhandle('one')} role="tab" className={tabone}>Read Books</a>
+                    <a onClick={() => tabhandle('two')} role="tab" className={tabtwo}>Wishlist Books</a>
                 </div>
             </div>
 

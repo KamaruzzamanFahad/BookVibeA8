@@ -3,6 +3,7 @@ import { json, useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const Book_Detil = () => {
     const location = useLocation();
     const { bookId, image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = location.state;
@@ -14,22 +15,23 @@ const Book_Detil = () => {
             if (!localdata.find(data => data == bookId)) {
                 const newdata = [...localdata, bookId]
                 localStorage.setItem('readdata', JSON.stringify(newdata))
-                toast.success("Book Added To Read List");
+                toast.success("Book Added To The Read List");
             } else {
-                toast.error("The Book Already Added!");
+                toast.error("Already You Have Reded The Book");
             }
         } else {
             localStorage.setItem('readdata', JSON.stringify([bookId]))
-            toast.success("Book Added To Read List");
+            toast.success("Book Added To The Read List");
 
-            
+
             const wishlist = JSON.parse(localStorage.getItem('wishdata'))
             if (wishlist) {
                 if (wishlist.find(data => data == bookId)) {
-                    toast.error("Already Added To the Wishlist")
-                } 
+                    const restitem = wishlist.filter(data => data !== bookId)
+                    localStorage.setItem('wishdata', JSON.stringify(readdata))
+                }
             }
-            
+
         }
 
 
@@ -37,8 +39,8 @@ const Book_Detil = () => {
 
     function wishhandle() {
         const haveinread = JSON.parse(localStorage.getItem('readdata'))
-        if (haveinread.find(data => data == bookId)) {
-            toast.error("The Book Already Readed");
+        if (haveinread !== null && haveinread.find(data => data == bookId)) {
+            toast.error("Already You Have Reded The Book");
         }
         else {
             const wishlist = JSON.parse(localStorage.getItem('wishdata'))

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 const Book_Detil = () => {
     const location = useLocation();
-    const {image,bookName,author,category,review,tags,totalPages,publisher,yearOfPublishing,rating} = location.state;
+    const { image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = location.state;
 
     return (
         <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row justify-center ">
@@ -23,21 +23,20 @@ const Book_Detil = () => {
                     <p className="tag">#{tags[1]}</p>
                 </div>
                 <hr />
-                <div className="flex mt-4 justify-between w-60">
-                    <p>Number of Pages:</p>
-                    <p className="font-bold text-black">{totalPages}</p>
-                </div>
-                <div className="flex mt-4 justify-between w-60">
-                    <p>Publisher:</p>
-                    <p className="font-bold text-black">{publisher}</p>
-                </div>
-                <div className="flex mt-4 justify-between w-60">
-                    <p>Year of Publishing:</p>
-                    <p className="font-bold text-black">{yearOfPublishing}</p>
-                </div>
-                <div className="flex mt-4 justify-between w-60">
-                    <p>Rating:</p>
-                    <p className="font-bold text-black">{rating}</p>
+
+                <div className="flex gap-10">
+                    <div className="flex flex-col gap-3 mt-4">
+                        <p>Number of Pages:</p>
+                        <p>Publisher:</p>
+                        <p>Year of Publishing:</p>
+                        <p>Rating:</p>
+                    </div>
+                    <div className="flex flex-col gap-3 mt-4">
+                        <p className="font-bold text-black">{totalPages}</p>
+                        <p className="font-bold text-black">{publisher}</p>
+                        <p className="font-bold text-black">{yearOfPublishing}</p>
+                        <p className="font-bold text-black">{rating}</p>
+                    </div>
                 </div>
                 <div className="flex gap-3 mt-5">
                     <button className="buttom bg-transparent border-[1px] border-[#929292a1] w-[100px] text-black ">Read</button>

@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         element:<ReadPage></ReadPage>
       },
       {
-        path:'/Book_Detil',
+        path:'/book_detil',
         element:<Book_Detil></Book_Detil>,
       }
     ]

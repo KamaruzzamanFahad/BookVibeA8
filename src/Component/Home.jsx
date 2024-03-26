@@ -1,4 +1,4 @@
-import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { NavLink, Navigate , useNavigate } from "react-router-dom";
 import '../index.css'
 import { FaRegStar } from "react-icons/fa";
 import { useEffect, useState } from "react";
@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
 
-    
     const [books, setbooks] = useState([])
 
     useEffect(() => {
@@ -15,10 +14,12 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setbooks(data))
     }, [])
+    const navigate = useNavigate();
 
-const clickhandle = (item)=>{
-    
-}
+    const clickhandle = (item) => {
+        navigate("/book_detil",{ state: item })
+    }
+
     return (
         <div className="mb-20">
             <div className="flex flex-col-reverse md:flex-row lg:flex-row xl:flex-row p-20 px-5 md:px-24 lg:px-24 xl:px-24 bg-[#0000000a] rounded-xl mt-10 justify-between items-center">
@@ -27,7 +28,7 @@ const clickhandle = (item)=>{
                     <button className="buttom bg-[#23BE0A] text-white p-4 px-7">View The List</button>
                 </div>
                 <div>
-                    <img src="/src/assets/pngwing 1.png" alt="" />
+                    <img src="pngwing 1.png" alt="" />
                 </div>
             </div>
 
@@ -36,7 +37,7 @@ const clickhandle = (item)=>{
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                 {
                     books.map((item, i) => (
-                        <div onClick={()=>clickhandle(item)} key={i} className="border-[1px] border-[#0000001b] p-5 rounded-xl">
+                        <div onClick={() => clickhandle(item)} key={i} className="border-[1px] border-[#0000001b] p-5 rounded-xl">
                             <div className="flex justify-center items-center bg-[#0000000f] p-10 rounded-xl mb-4">
                                 <img src={item.image} alt="" width={'120px'} />
                             </div>

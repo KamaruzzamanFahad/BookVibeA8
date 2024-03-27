@@ -10,7 +10,7 @@ import Root from './Component/Root.jsx';
 import ErrorPage from './Component/Error-page.jsx';
 import Home from './Component/Home.jsx';
 import LIstedBook from './Component/Listed-book.jsx';
-import ReadPage from './Component/Read-page.jsx';
+import ReadPage from './Component/Read_page.jsx';
 import Book_Detil from './Component/Book_Detil.jsx';
 
 const router = createBrowserRouter([

@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, YAxis } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis,CartesianGrid,Tooltip } from 'recharts';
 import React, { useEffect, useState } from 'react';
 import { iterate } from 'localforage';
 
@@ -46,11 +46,16 @@ const ReadPage = () => {
         return <text x={x + width / 2} y={y} fill="#666" textAnchor="middle" dy={-6}>{`${value}`}</text>;
       };
 
+      const COLORS = ['#ffc600', '#32cd32', '#ff0000', '#9932cc', '#c2c2f0'];
+
+    
     return (
         <div className='flex justify-center items-center h-[80vh]'>
             <BarChart width={900} height={600} data={books}>
                 <XAxis dataKey="bookName" />
                 <YAxis dataKey="totalPages" />
+                <Tooltip />
+                <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                 <Bar dataKey="totalPages" fill="#8884d8" shape={<TriangleBar />} label={renderCustomBarLabel} />
             </BarChart>
         </div>

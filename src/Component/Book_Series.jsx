@@ -14,7 +14,7 @@ const Book_Series = () => {
                 Brace yourselves as we take you on an entertaining (and sometimes, harsh) ride!
             </p>
 
-            <div className='grid grid-cols-2 mt-10 mb-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 mt-10 mb-10 gap-5'>
                 <div>
                     <div className='flex flex-col justify-center items-center'>
                         <img width={'80%'} src="https://bookvibe.com/wp-content/uploads/2024/01/Crescent-City-Series-in-Order-546x600.jpg" alt="" />

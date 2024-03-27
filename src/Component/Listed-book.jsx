@@ -65,7 +65,7 @@ const LIstedBook = () => {
     return (
         <div>
             <h1 className='text-center p-7 rounded-2xl text-2xl font-bold text-black mt-5 bg-[#0000000d]'>Books</h1>
-            <div className='flex justify-center items-center mt-7'>
+            <div className='flex justify-center items-center mt-7 mb-5'>
                 <select className=" bg-[#23BE0A] text-white text-md select select-bordered w-32 max-w-xs">
                     <option className='bg-[#919191]' disabled selected>Sort By</option>
                     <option className='bg-[#919191]'>Rating</option>

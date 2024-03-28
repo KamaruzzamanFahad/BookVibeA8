@@ -38,7 +38,7 @@ const Header = () => {
                 </div>
                 <div className="w-auto navbar-end flex gap-5 justify-end">
                     <button className="buttom bg-[#23BE0A] text-white ">Sign In</button>
-                    <button className="buttom bg-[#59C6D2] text-white px-7">Sign Up</button>
+                    <button className="buttom hidden sm:inline bg-[#59C6D2] text-white px-7">Sign Up</button>
                     
                 </div>
             </div>

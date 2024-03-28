@@ -17,7 +17,7 @@ const Book_Detil = () => {
                 localStorage.setItem('readdata', JSON.stringify(newdata))
                 toast.success("Book Added To The Read List");
             } else {
-                toast.error("Already You Have Reded The Book");
+                toast.error("Already You Have Readed The Book");
             }
         } else {
             localStorage.setItem('readdata', JSON.stringify([bookId]))
@@ -40,7 +40,7 @@ const Book_Detil = () => {
     function wishhandle() {
         const haveinread = JSON.parse(localStorage.getItem('readdata'))
         if (haveinread !== null && haveinread.find(data => data == bookId)) {
-            toast.error("Already You Have Reded The Book");
+            toast.error("Already You Have Readed The Book");
         }
         else {
             const wishlist = JSON.parse(localStorage.getItem('wishdata'))

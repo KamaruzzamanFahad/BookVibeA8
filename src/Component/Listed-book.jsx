@@ -55,10 +55,43 @@ const LIstedBook = () => {
     }
 
 
+    
+    
+    readbook.map((item,i)=>{
+        // console.log(item.bookId)
+    })
 
 
+    const [sortData, setData] = useState([])
 
+    const sortByrating = () => {
+        const sortedData = [...readbook].sort((a, b) => b.rating - a.rating);
+        setData(sortedData);
+      };
 
+      const sortBypages = () => {
+        const sortedData = [...readbook].sort((a, b) => b.totalPages - a.totalPages);
+        setData(sortedData);
+      };
+
+      const sortByyear = () => {
+        const sortedData = [...readbook].sort((a, b) => b.yearOfPublishing - a.yearOfPublishing);
+        setData(sortedData);
+      };
+    
+
+    const selecthandel = (event)=>{
+        const selectitem =event.target.value;
+        if(selectitem == "Rating"){
+            sortByrating();
+        }
+        else if(selectitem == "Number of pages"){
+            sortBypages();
+        }
+        else if(selectitem == "Publisher year"){
+            sortByyear();
+        }
+    }
 
 
 
@@ -66,7 +99,7 @@ const LIstedBook = () => {
         <div>
             <h1 className='text-center p-7 rounded-2xl text-2xl font-bold text-black mt-5 bg-[#0000000d]'>Books</h1>
             <div className='flex justify-center items-center mt-7 mb-5'>
-                <select className=" bg-[#23BE0A] text-white text-md select select-bordered w-32 max-w-xs">
+                <select onChange={selecthandel} className=" bg-[#23BE0A] text-white text-md select select-bordered w-32 max-w-xs">
                     <option className='bg-[#919191]' disabled selected>Sort By</option>
                     <option className='bg-[#919191]'>Rating</option>
                     <option className='bg-[#919191]'>Number of pages</option>
@@ -84,7 +117,7 @@ const LIstedBook = () => {
             {/* tab one */}
             <div className={open == "one" ? "flex flex-col" : 'hidden'}>
                 {
-                    readbook.map((item, i) => (
+                    sortData.map((item, i) => (
                         <div className='flex gap-5 border-[1px] border-[#20202023] rounded-2xl px-5 py-2 w-full mt-5 flex-col md:flex-row lg:flex-row xl:flex-row '>
                             <div className="flex justify-center items-center bg-[#0000000f] p-10 rounded-xl mb-4 mt-3">
                                 <img src={item.image} alt="" width={'120px'} />

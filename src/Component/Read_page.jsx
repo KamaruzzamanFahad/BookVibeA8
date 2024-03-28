@@ -51,8 +51,8 @@ const ReadPage = () => {
     
     return (
         <div className='flex justify-center items-center h-[80vh]'>
-            <BarChart width={900} height={600} data={books}>
-                <XAxis dataKey="bookName" />
+            <BarChart  width={900} height={600} data={books}>
+                <XAxis  dataKey="bookName" />
                 <YAxis dataKey="totalPages" />
                 <Tooltip />
                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />

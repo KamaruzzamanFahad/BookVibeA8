@@ -7,19 +7,19 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Root from './Component/Root.jsx';
-import ErrorPage from './Component/Error-page.jsx';
 import Home from './Component/Home.jsx';
 import LIstedBook from './Component/Listed-book.jsx';
 import ReadPage from './Component/Read_page.jsx';
 import Book_Detil from './Component/Book_Detil.jsx';
 import Book_Series from './Component/Book_Series.jsx';
 import Book_swapping from './Component/Book_swapping.jsx';
+import Error from './Component/Error.jsx';
 
 const router = createBrowserRouter([
   {
     path:"/",
     element:<Root></Root>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement:<Error></Error>,
     children:[
       {
         path:"/",
@@ -44,6 +44,10 @@ const router = createBrowserRouter([
       {
         path:'/Book_swapping',
         element:<Book_swapping></Book_swapping>
+      },
+      {
+        path:"/error",
+        element:<Error></Error>,
       }
     ]
   }
